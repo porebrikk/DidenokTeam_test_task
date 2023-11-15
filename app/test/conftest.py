@@ -1,6 +1,6 @@
 from pytest import fixture
 
-from app.password.password_db import Hint
+from password.password_db import Hint
 from app import app
 
 

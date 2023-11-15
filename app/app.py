@@ -1,7 +1,7 @@
 from flask import Flask
 
-from app.core import api, db, Base
-from app.password.password_rst import controller
+from core import api, db, Base
+from password.password_rst import controller
 
 
 app = Flask(__name__)
@@ -15,3 +15,7 @@ api.add_namespace(controller)
 
 with app.app_context():
     Base.metadata.create_all(db.engine)
+
+
+if __name__ == "__main__":
+    app.run()

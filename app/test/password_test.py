@@ -2,8 +2,7 @@ from flask.testing import FlaskClient
 from pytest import mark, param
 from werkzeug.test import TestResponse
 
-from app.password.password_db import Hint
-from app.core import db
+from password.password_db import Hint
 
 
 @mark.order(0)

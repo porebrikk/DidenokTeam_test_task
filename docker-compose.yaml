@@ -7,3 +7,12 @@ services:
     tty: true
     volumes:
       - ./instance/:/root/instance/
+
+  didenok_team:
+    depends_on:
+      - sqlite3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"

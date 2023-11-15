@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy_utils import StringEncryptedType
 from sqlalchemy_utils.types.encrypted.encrypted_type import AesEngine
 
-from app.core import db, api, secret_key
+from core import db, api, secret_key
 
 
 class Hint(db.Model):

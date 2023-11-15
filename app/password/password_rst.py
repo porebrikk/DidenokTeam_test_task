@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
-from app.password.password_db import hint_model, password_model, Hint
+from password.password_db import hint_model, password_model, Hint
 
 controller = Namespace("pass_storage", path="/password")
 
