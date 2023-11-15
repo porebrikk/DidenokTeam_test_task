@@ -48,7 +48,6 @@ def test_update(
         password: str | None,
         expect: str,
 ):
-    print(test_hint)
     result: TestResponse = client.post(
         f"/password/{test_hint.service_name}",
         json={"password": password},
