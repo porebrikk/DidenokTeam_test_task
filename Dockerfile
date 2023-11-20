@@ -1,4 +1,7 @@
 FROM python:3.11-alpine as base
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
 
 FROM base as builder
 
@@ -18,8 +21,9 @@ RUN apk --no-cache add libpq
 WORKDIR /didenok_team
 COPY ./app app
 
-WORKDIR /didenok_team/app
+WORKDIR ./app
 EXPOSE 5000
 
+COPY . /app
 ENTRYPOINT ["python"]
 CMD ["app.py"]
