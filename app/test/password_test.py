@@ -24,12 +24,18 @@ def test_create(
         f"/password/{service_name}",
         json={"password": password},
     )
+
+    # checking the validity of the response
     assert result.status_code == code
     assert result.json == response
 
     if code == 200:
         hint: Hint = Hint.find_by_name(service_name)
+
+        # checking if the password is right
         assert hint.password == password
+
+        # clear db
         hint.delete()
     assert Hint.find_by_name(service_name) is None
 
@@ -53,9 +59,11 @@ def test_update(
         json={"password": password},
     )
 
+    # checking the validity of the response
     assert result.status_code == 200
     assert result.json == {"password": expect}
 
+    # checking if the updating is done
     hint = Hint.find_by_name(test_hint.service_name)
     assert hint.password == expect
 
@@ -65,6 +73,7 @@ def test_get(
         client: FlaskClient,
         test_hint: Hint,
 ):
+    # getting the responses
     result: TestResponse = client.get(f"/password/{test_hint.service_name}")
     result_list: TestResponse = client.get(
         f"/password/?service_name={test_hint.service_name[0:len(test_hint.service_name)-2]}"
@@ -74,10 +83,10 @@ def test_get(
         "password": test_hint.password
     }
 
+    # checking the validity of the response
     assert result.status_code == 200
     assert result.json == expect_dict
 
+    # checking if the list is right
     assert isinstance(result_list.json, list)
     assert result_list.json[0] == expect_dict
-
-

@@ -16,6 +16,5 @@ api.add_namespace(controller)
 with app.app_context():
     Base.metadata.create_all(db.engine)
 
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -6,7 +6,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /root/instance/
+      - ./instance/:/root/instance/
 
   didenok_team:
     depends_on:
