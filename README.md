@@ -13,7 +13,7 @@
 Порядок запуска:
 1. Сделать клон репозитория:
 ```
-git clone https://github.com/porebrikk/didenok_team.git)
+git clone https://github.com/porebrikk/didenok_team.git
 ```
 3. Перейти в папку **didenok_team**;
 4. Запустить контейнеры с базой данных и приложением:
